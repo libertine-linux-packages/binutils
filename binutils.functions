@@ -2,11 +2,13 @@
 # Copyright © 2016 The developers of libertine linux's package binutils. See the COPYRIGHT file in the top-level directory of this distribution and at https://raw.githubusercontent.com/libertine-linux-packages/binutils/master/COPYRIGHT.
 
 
-variant=binutils-2.25.1
-
 case "$package" in
 	
 	build_musl_cross_make_binutils)
+	
+		variant=empty
+		
+		copy_subset="$variant"
 	
 		libertine_compile_build_musl_cross_make_binutils()
 		{
@@ -16,7 +18,9 @@ case "$package" in
 	;;
 	
 	binutils)
-	
+
+		variant=tarball
+		
 		libertine_compile_binutils()
 		{
 			core_exitError 1 "Not implemented"
